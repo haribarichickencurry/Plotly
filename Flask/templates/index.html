@@ -1,0 +1,39 @@
+<link rel="stylesheet" href="/static/style1.css" type="text/css">
+{% block content %}
+{% if session['logged_in'] %}
+<head>
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+
+ 
+<body>
+	<a href="/logout" background = #ffc> Logout </a> 
+	<br><br>
+	{{div1|safe}}
+	<br>
+	
+	<form action="/">
+	X1  <input type="text" name="x1" value="x1">
+	X2  <input type="text" name="x2" value="x1" onchange="this.form.submit()">
+	<br>
+
+	</form>
+</body>
+	
+{% else %}
+<h1 align="center"> Login for plotly visualization </h1>
+<body>
+<div style="text-align:center">
+<p>Not logged in?</p>
+<a  href="/login" >Login</a> 
+<p>New user?</p>
+<a href="/register" >Register</a>
+ 
+</div>
+
+</body>
+
+
+
+{% endif %}
+{% endblock %}
